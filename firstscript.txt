@@ -30,7 +30,7 @@ vesselFinger.Use:FireServer()
 local button = Instance.new("TextButton")
 button.Text = "criar dedo"
 button.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
-button.Position = UDim2.new(0.5, 0, 0.5, 0)
+button.Position = UDim2.new(0.5, 0, 0.1, 0)
 button.Size = UDim2.new(0, 100, 0, 50)
 button.Parent = game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui
 
@@ -39,3 +39,5 @@ button.MouseButton1Click:Connect(function()
     vesselFingerClone.Parent = game:GetService("Workspace")
 end)
 
+-- Make the player blue
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.BrickColor = BrickColor.new("Bright blue")
