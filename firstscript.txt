@@ -18,6 +18,7 @@ local QuitDivider = Main:Divider{
    Name = "Sair"
 }
 
+local isActivated = false
 
 -- Remove the countdown on left-click attack
 game:GetService("Players").LocalPlayer.Character.Humanoid:FindFirstChildOfClass("Tool").CountdownGui:Destroy()
@@ -42,3 +43,24 @@ end)
 
 -- Make the player blue
 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.BrickColor = BrickColor.new("Bright blue")
+
+-- Create keybinds to activate and deactivate the script
+game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
+    if input.KeyCode == Enum.KeyCode.F1 then
+        isActivated = not isActivated
+        if isActivated then
+            print("Script ativado!")
+        else
+            print("Script desativado!")
+        end
+    end
+end)
+
+-- Teleport to Vessel_Finger and use it when script is activated
+while true do
+    if isActivated then
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = vesselFinger.CFrame
+        vesselFinger.Use:FireServer()
+    end
+    wait()
+end
