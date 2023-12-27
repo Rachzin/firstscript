@@ -1,0 +1,41 @@
+
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/7yhx/kwargs_Ui_library/main/source.lua
+")) ()
+
+local UI = Lib:Create(
+    Theme = "Dark",
+    Size = UDim2.new(0, 555, 0, 400)
+}
+
+local Main = UI: Tab {
+    Name = "Main"
+}
+
+local Divider = main: Divider{
+    Name = "Main shit"
+}
+
+local QuitDivider = Main: Divider{
+    Name = "Quit"
+}
+
+-- Remove the countdown on left-click attack
+game:GetService("Players").LocalPlayer.Character.Humanoid:FindFirstChildOfClass("Tool").CountdownGui:Destroy()
+
+-- Teleport to Vessel_Finger and use it
+local vesselFinger = game:GetService("Workspace").Vessel_Finger
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = vesselFinger.CFrame
+vesselFinger.Use:FireServer()
+
+-- Create a blue button to spawn Vessel_Finger
+local button = Instance.new("TextButton")
+button.Text = "criar dedo"
+button.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+button.Position = UDim2.new(0.5, 0, 0.5, 0)
+button.Size = UDim2.new(0, 100, 0, 50)
+button.Parent = game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui
+
+button.MouseButton1Click:Connect(function()
+    local vesselFingerClone = vesselFinger:Clone()
+    vesselFingerClone.Parent = game:GetService("Workspace")
+end)
