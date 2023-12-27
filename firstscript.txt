@@ -7,16 +7,17 @@ local UI = Lib:Create{
 }
 
 local Main = UI:Tab{
-   Name = "Main"
+   Name = "Início"
 }
 
 local Divider = Main:Divider{
-   Name = "Main shit"
+   Name = "Início shit"
 }
 
 local QuitDivider = Main:Divider{
-   Name = "Quit"
+   Name = "Sair"
 }
+
 
 -- Remove the countdown on left-click attack
 game:GetService("Players").LocalPlayer.Character.Humanoid:FindFirstChildOfClass("Tool").CountdownGui:Destroy()
